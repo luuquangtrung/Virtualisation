@@ -159,6 +159,12 @@ public class VirtualNetwork implements Cloneable, java.io.Serializable, Virtuali
     
 	
 	/**
+	 * willingness to pay
+	 */
+	
+	double willingnessToPay = 0.0;
+	
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1392013755261822599L;
@@ -263,10 +269,20 @@ public class VirtualNetwork implements Cloneable, java.io.Serializable, Virtuali
     	
     	return processing;
     }
+    
+    
  
     
     
-    /**
+    public double getWillingnessToPay() {
+		return willingnessToPay;
+	}
+
+	public void setWillingnessToPay(double willingnessToPay) {
+		this.willingnessToPay = willingnessToPay;
+	}
+
+	/**
      * sets x value of mean location of network nodes
      * @param mean
      */

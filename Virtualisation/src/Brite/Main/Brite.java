@@ -40,10 +40,15 @@ final public class Brite {
     
     @SuppressWarnings("rawtypes")
 	public static void main(String args[]) {
-    	
-      String filename="E:/workspace/MultiAgentSurvivability/src/Brite/Files/RTWaxman.conf";
-      String outFile ="E:/workspace/MultiAgentSurvivability/src/Brite/Files/OUTPUT";
-      String seedFile="E:/workspace/MultiAgentSurvivability/src/Brite/Files/seed_file1";
+		
+		//uncomment for Mario
+		//String workspace = "E:/workspace/";
+		//uncomment for Bram
+		String workspace =  "C:/Users/bnaudts/git/vne/";
+		
+      String filename=workspace.concat("NetworkVirtualisationWithDynamicPricing/src/Brite/Files/RTWaxman.conf");
+      String outFile =workspace.concat("NetworkVirtualisationWithDynamicPricing/src/Brite/Files/OUTPUT");
+      String seedFile=workspace.concat("NetworkVirtualisationWithDynamicPricing/src/Brite/Files/seed_file1");
       
       /*get config file, get output file*/
 /*      try { 

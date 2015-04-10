@@ -21,9 +21,9 @@ final public class BriteTopology implements VirtualisationVocabulary{
     	
      // String filename="C:/workspace/NetworkVirtualisation/src/Brite/Files/RTWaxman.conf";
         
-       String outFile = workspace.concat("MultiAgentSurvivability/src/Brite/Files/OUTPUT");
+       String outFile = workspace.concat("NetworkVirtualisationWithDynamicPricing/src/Brite/Files/OUTPUT");
         
-        String seedFile= workspace.concat("MultiAgentSurvivability/src/Brite/Files/seed_file");
+        String seedFile= workspace.concat("NetworkVirtualisationWithDynamicPricing/src/Brite/Files/seed_file");
         
    //     String seedFile= "/home/rashid/MultiAgentSurvivability/src/Brite/Files/seed_file";
         

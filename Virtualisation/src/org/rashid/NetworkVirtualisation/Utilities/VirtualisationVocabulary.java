@@ -23,8 +23,10 @@ public interface VirtualisationVocabulary {
 	/**
 	 * URI of Workspace
 	 */
-	String workspace = "E:/workspace/";
-	
+	//uncomment for Mario
+	//String workspace = "E:/workspace/";
+	//uncomment for Bram
+	String workspace =  "C:/Users/bnaudts/git/vne/";
     /**
      * 1 VN every 3 seconds
      */

@@ -230,11 +230,16 @@ public class OneShotVNMapping implements VirtualisationVocabulary{
 		            
 		            String name = x[j].getName();
 		                           
+		            double cost = calculateCost(substrate,virtual);
 		            if(val > 0.99 && val < 1.01){
 		            	
-		          //  	System.out.println("Variable " + name + ": Value = " + val);
-		         	   
-		            	updateNodeMapping(name);
+		            	//only update node mapping when the willingness to pay is bigger than the cost 
+		            	if(virtual.getWillingnessToPay() > cost){
+		            		//System.out.println("Variable " + name + ": Value = " + val);
+		            		updateNodeMapping(name);
+		            	} else {
+		            		mappingresult = false;
+		            	}
 		         	          		   	                      
 		         }
 		            
@@ -281,6 +286,32 @@ public class OneShotVNMapping implements VirtualisationVocabulary{
 	}
 
 	
+	private double calculateCost(SubstrateNetwork substrate,
+			VirtualNetwork virtual) {
+		double cost = 0.0;
+		
+		ArrayList<VirtualLink> virtualLinks = virtual.getVirtualLinks();
+		ArrayList<VirtualNode> virtualNodes = virtual.getVirtualNodes();
+		
+		//iterate over all virtual nodes, proportionally add costs based on utilization
+		for (int i = 0; i < virtualNodes.size();i++){
+			SubstrateNode substrateNode = virtualNodes.get(i).getSubstrateNode();
+			cost += substrateNode.getNodeCost()/substrateNode.getTotalCPU() * virtualNodes.get(i).getTotalCPU();
+		}
+		//iterate over all virtual links, proportionally add costs based on utilization
+		for (int i =0; i < virtualLinks.size();i++){
+			VirtualLink virtualLink = virtualLinks.get(i);
+			ArrayList<SubstrateLink> substrateLinks = virtualLink.getMappingSubstrateLinks();
+			for (int j = 0; j < substrateLinks.size();j++){
+				SubstrateLink substrateLink = substrateLinks.get(j);
+				cost += substrateLink.getLinkCost()/substrateLink.getTotalBandWidth() * virtualLink.getTotalBandWidth();
+			}
+		}
+		
+		return cost;
+	}
+
+
 	private void finaliseNodeMapping() throws StaleProxyException {
 		
 		for(VirtualNode nodvir: virnodes){
