@@ -23,8 +23,8 @@ public class Main implements VirtualisationVocabulary{
 	 
 	 //add node and link pricing
 	 SubstrateNetwork dynamicallyPricedSubstrateNetwork = list.get(0);
-	 ArrayList<SubstrateNode> nodes = dynamicallyPricedSubstrateNetwork.getNodes();
-	 ArrayList<SubstrateLink> links = dynamicallyPricedSubstrateNetwork.getLinks();
+	 ArrayList<SubstrateNode> nodes = dynamicallyPricedSubstrateNetwork.getSubstrateNodes();
+	 ArrayList<SubstrateLink> links = dynamicallyPricedSubstrateNetwork.getSubstrateLinks();
 	 for (int n = 0; n < nodes.size(); n++){
 		 nodes.get(n).setNodeCost(100.0);
 	 }

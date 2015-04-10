@@ -29,7 +29,12 @@ public class SubstrateLink implements VirtualisationVocabulary, Cloneable, java.
 		
 	}
 	
+	/**
+	 * The per unit cost of using this Link for any Virtual Node Mapping
+	 */
 	
+	Double cost = 0.0;
+
 	public void startLinkFailures(){
 		
 		final SubstrateLink slk = this;
@@ -612,6 +617,20 @@ public class SubstrateLink implements VirtualisationVocabulary, Cloneable, java.
     	
     	return x;
     }
+    
+    /**
+	 * Retrieve the per unit cost of using this Link for any Virtual Node Mapping
+	 */
+    public Double getLinkCost() {
+		return cost;
+	}
+
+    /**
+	 * Set the per unit cost of using this Link for any Virtual Node Mapping
+	 */
+	public void setLinkCost(Double cost) {
+		this.cost = cost;
+	}
     
     
 	public static void scheduleLinkFailure(final SubstrateLink link) { 
